@@ -1,21 +1,19 @@
-from falsk import flask
+from flask import Flask
 from bluelog.settings import config
-from bluelog.Blueprint.admin import admin_bp
-from bluelog.Blueprint.auth import auth_bp
-from bluelog.Blueprint.blog import blog_bp
+from bluelog.blueprints.admin import admin_bp
+from bluelog.blueprints.auth import auth_bp
+from bluelog.blueprints.blog import blog_bp
 from bluelog.extensions import bootstrap, db, moment, ckeditor, mail
 from flask import url_for, render_template
-
+import os
 
 
 config_name = os.getenv('FLASK_CONFIG', 'development')
-app.config.from_object(config[config_name])
-
 
 def create_app(config_name=None):
-    if config_name if None:
+    if config_name is None:
         config_name = os.getenv('FLASK_CONFIG', 'development')
-    app = flask(__name__)
+    app = Flask(__name__)
     app.config.from_object(config[config_name])
     return app
 

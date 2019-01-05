@@ -25,7 +25,7 @@ class DevelopmentConfig(BaseConfig):
 
     SQLALCHEMY_DATABASE_URI = 'sqlit:///' + os.path.join(basedir, 'data-dev.data')
 
-class TestingConfig(BaseConfig)
+class TestingConfig(BaseConfig):
 
     TESTING = True
     WTF_CSRF_ENABLED = False
