@@ -10,9 +10,11 @@ flask-debugtoolbar = "*"
 flask = "*"
 flask-sqlalchemy = "*"
 flask-login = "*"
-boorstrap-flask = "*"
 flask-mail = "*"
 flask-moment = "*"
+flask-bootstrap = "*"
+flask-ckeditor = "*"
+flask-wtf = "*"
 
 [requires]
 python_version = "3.6"
