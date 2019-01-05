@@ -10,6 +10,9 @@ flask-debugtoolbar = "*"
 flask = "*"
 flask-sqlalchemy = "*"
 flask-login = "*"
+boorstrap-flask = "*"
+flask-mail = "*"
+flask-moment = "*"
 
 [requires]
 python_version = "3.6"
