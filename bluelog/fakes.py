@@ -1,13 +1,12 @@
 from faker import Faker
 from random import randint
 
-from bluglog.models import admin
-from bluglog.models import Comment
+from bluelog.models import Admin
+from bluelog.models import Comment
 from bluelog.models import Category
-from bluglog.models import Post
+from bluelog.models import Post
 
 from bluelog.extensions import db
-from bluglog.extensions import # DEBUG:
 
 
 fake = Faker()
@@ -15,9 +14,9 @@ def fake_admin():
     admin = Admin(
         username='admin',
         blog_title='Bluelog',
-        blog_sub_title="No, I'm the real thing"
-        name='Mima Kirigoe'
-        about'Um, l, Mima kirigoe,had a fun time as member of CHAM..'
+        blog_sub_title="No, I'm the real thing",
+        name='Mima Kirigoe',
+        about='Um, l, Mima kirigoe,had a fun time as member of CHAM..'
     )
     admin.set_password('helloflask')#not yet
     db.session.add(admin)
@@ -104,4 +103,3 @@ def fake_comments(count=500):
         )
         db.session.add(comment)
     db.session.commit()
-    
