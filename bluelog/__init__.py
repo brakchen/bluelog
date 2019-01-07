@@ -15,6 +15,14 @@ def create_app(config_name=None):
         config_name = os.getenv('FLASK_CONFIG', 'development')
     app = Flask(__name__)
     app.config.from_object(config[config_name])
+
+    register_errors(app)
+    register_logging(app)
+    register_blueprint(app)
+    register_shell_context(app)
+    register_extensions(app)
+    register_template_context(app)
+    register_commands(app)
     return app
 
 def register_logging(app):
