@@ -22,14 +22,13 @@ class BaseConfig(object):
     BLUELOG_COMMENT_PER_PAGE = 15
 
 class DevelopmentConfig(BaseConfig):
-
-    SQLALCHEMY_DATABASE_URI = 'sqlit:///' + os.path.join(basedir, 'data-dev.data')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-dev.data')
 
 class TestingConfig(BaseConfig):
-
     TESTING = True
     WTF_CSRF_ENABLED = False
-    SQLALCHEMY_DATABASE_URI = 'sqlit:///:memory:'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+
 
 class ProductionConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL','sqlit:///' + os.path.join(basedir, 'data-dev.data'))
