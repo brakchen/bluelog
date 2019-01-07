@@ -41,7 +41,7 @@ def fake_posts(count=50):
         post = Post(
         title=fake.sentence(),
         body=fake.text(200),
-        category=Category.query.get(reandom.reandint(1,Category.query.count())),
+        category=Category.query.get(randint(1,Category.query.count())),
         timestamp=fake.date_time_this_year()
         )
         db.session.add(post)
@@ -58,7 +58,7 @@ def fake_comments(count=500):
         body=fake.sentence(),
         timestamp=fake.date_time_this_year(),
         reviewed=True,
-        post=Post.query.get(random.randint(1, Post.query.count()))
+        post=Post.query.get(randint(1, Post.query.count()))
         )
         db.session.add(comment)
 
@@ -72,7 +72,7 @@ def fake_comments(count=500):
         body=fake.sentence(),
         timestamp=fake.date_time_this_year(),
         reviewed=False,
-        post=Post.query.get(random.randint(1, Post.query.count()))
+        post=Post.query.get(randint(1, Post.query.count()))
         )
         db.session.add(comment)
         #管理员评论
@@ -83,7 +83,7 @@ def fake_comments(count=500):
         body=fake.sentence(),
         timestamp=fake.date_time_this_year(),
         reviewed=False,
-        post=Post.query.get(random.randint(1, Post.query.count()))
+        post=Post.query.get(randint(1, Post.query.count()))
         )
         db.session.add(comment)
 
@@ -98,8 +98,8 @@ def fake_comments(count=500):
         body=fake.sentence(),
         timestamp=fake.date_time_this_year(),
         reviewed=False,
-        replied=Comment.query.get(random.randint(1, Comment.query.count())),
-        post=Post.query.get(random.randint(1, Post.query.count()))
+        replied=Comment.query.get(randint(1, Comment.query.count())),
+        post=Post.query.get(randint(1, Post.query.count()))
         )
         db.session.add(comment)
     db.session.commit()
