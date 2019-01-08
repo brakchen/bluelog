@@ -8,6 +8,8 @@ from flask import url_for, render_template
 import os
 import click
 
+from bluelog.models import Category, Admin
+
 
 
 def create_app(config_name=None):
@@ -46,7 +48,11 @@ def register_shell_context(app):
         return dict(db=db, mail=mail)
 
 def register_template_context(app):
-    pass
+    @app.context_processor
+    def make_template_context():
+        admin = Admin.query.first()
+        categories = Category.query.order_by(Category.name).all()
+        return dict(admin=admin, categories=categories)
 
 def register_errors(app):
     @app.errorhandler(400)
